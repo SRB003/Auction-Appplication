@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="Auction.css">
+  
+    <title>Auction Web Page</title>
+    
+</head>
+<body>
+ 
+  <header>
+    <h1>Auction Web App</h1>
+    <p>Bid on your favorite items and win them at the best price!</p>
+    <a href="index.html" class="btn">Logout</a>
+    
+      <button class="sell-btn">Sell Item</button>
+      <a href="sold.html" class="btn">Sold items</a>
+      
+
+   
+  </header>
+  <div class="container">
+    <div class="auctions">
+      <div class="auction">
+        <h2>Auction 1</h2>
+        <img src="https://i.pcmag.com/imagery/roundups/07ml3nh3QrzTLZ9UycfQQB2-49..v1668971764.jpg" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$100.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 2</h2>
+        <img src="https://images.hindustantimes.com/tech/img/2022/07/31/1600x900/IMG_4297_1659242329944_1659242374626_1659242374626.jpg" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 3</h2>
+        <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202212/oneplus_nord_2t_review_5-x800-one_one.jpg?VersionId=MsiBzUvJW3czINYMxzRWjv7Mj5jDyvzp" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+        </div>
+        <div class="auction">
+          <h2>Auction 4</h2>
+          <img src="https://www.electrolux.in/globalassets/electrolux-india/kitchen/refrigerators/eqe6879a-b/eqe6879a-b-fr-cl-1500x1500.png" alt="Auction Item">
+          <p>Current bid: <span class="current-bid">$200.00</span></p>
+          <button class="bid-btn">Bid</button>
+          </div>
+          <div class="auction">
+            <h2>Auction 5</h2>
+            <img src="https://www.lg.com/in/images/tvs/MD06140496/gallery/D-02.jpg" alt="Auction Item">
+            <p>Current bid: <span class="current-bid">$200.00</span></p>
+            <button class="bid-btn">Bid</button>
+            </div>
+            <div class="auction">
+              <h2>Auction 6</h2>
+              <img src="https://m.media-amazon.com/images/I/51zTwdrzEpL.jpg" alt="Auction Item">
+              <p>Current bid: <span class="current-bid">$200.00</span></p>
+              <button class="bid-btn">Bid</button>
+              </div>
+              <div id="auction-container"></div>
+             
+
+    </body>   
+    <script>
+      const bidButtons = document.querySelectorAll('.bid-btn');
+
+bidButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const currentBid = button.parentElement.querySelector('.current-bid');
+    let currentBidAmount = Number(currentBid.textContent.replace('$', ''));
+    const limit = 1000; 
+    if (currentBidAmount + 10 > limit) {
+      alert('Sorry, the bid limit has been reached!');
+      return;
+    }
+    currentBidAmount += 10;
+    currentBid.textContent = `$${currentBidAmount.toFixed(2)}`;
+  });
+});
+
+    </script>
+    
+    <script>
+      const sellButton = document.querySelector('.sell-btn');
+      const container = document.querySelector('.auctions');
+    
+      sellButton.addEventListener('click', () => {
+        const name = prompt('Enter item name:');
+        const image = prompt('Enter image URL:');
+        const startingBid = prompt('Enter starting bid:');
+    
+        const auction = document.createElement('div');
+        auction.classList.add('auction');
+        auction.innerHTML = `
+          <h2>${name}</h2>
+          <img src="${image}" alt="Auction Item">
+          <p>Current bid: <span class="current-bid">$${startingBid}.00</span></p>
+          <button class="bid-btn">Bid</button>
+        `;
+        container.insertBefore(auction, document.getElementById('auction-container'));
+        
+      });
+    </script>
+    

@@ -1,0 +1,103 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    margin: 20px;
+}
+
+section#search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+section#search input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #333;
+    margin-right: 10px;
+}
+
+section#search button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+section#search button:hover {
+    background-color: #444;
+}
+
+section#filters {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+section#filters label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+section#filters select {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #333;
+    margin-right: 10px;
+}
+
+section#items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+section#items .item {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+section#items .item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+section#items .item h2 {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+section#items .item p {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}

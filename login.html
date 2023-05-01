@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Auction Web App - Log In</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Auction Web App</h1>
+      <p>Bid on your favorite items and win them at the best price!</p>
+    </header>
+    <div class="container">
+      <div class="form">
+        <h2>Log In</h2>
+        <div id="login-form">
+          <div class="error" id="login-error"></div>
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password">
+          <button type="submit" onclick="login()">Log In</button><br>
+          <br>
+          <a href="signup.html">Don't have an account? Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy;2023 Auction Web App. All rights reserved.</p>
+    </footer>
+   
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+
+    
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCeGncsw3ZzjGn47IVLN3dTOowFeKpKKmE",
+    authDomain: "authentication-53000.firebaseapp.com",
+    projectId: "authentication-53000",
+    storageBucket: "authentication-53000.appspot.com",
+    messagingSenderId: "827765507594",
+    appId: "1:827765507594:web:aa8f64359c4bac8c7c41f3",
+    measurementId: "G-J8TDGBJ9VF"
+  };
+ 
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  function login() {
+    var email = document.getElementById("login-email").value;
+    var password = document.getElementById("login-password").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+       
+        var user = userCredential.user;
+        alert("Loged in successfully !")
+       window.location.replace("category.html");
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        document.getElementById("login-error").innerHTML = errorMessage;
+      });
+  }
+</script>
+
+    </body>

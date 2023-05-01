@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sold Items - Auction</title>
+    <link rel="stylesheet" href="sold.css">
+  
+</head>
+<body>
+	<header>
+		<h1>Sold Items - Auction</h1>
+	</header>
+	<main>
+		<section id="search">
+			<input type="text" placeholder="Search sold items...">
+			<button>Search</button>
+		</section>
+		<section id="filters">
+			<label for="category">Filter by category:</label>
+			<select id="category">
+				<option value="">All</option>
+				<option value="electronics">Electronics</option>
+				<option value="furniture">Furniture</option>
+				<option value="jewelry">Jewelry</option>
+                <option value="jewelry">car</option>
+			</select>
+			<label for="date">Filter by date:</label>
+			<select id="date">
+				<option value="">All</option>
+				<option value="lastweek">Last week</option>
+				<option value="lastmonth">Last month</option>
+				<option value="lastyear">Last year</option>
+			</select>
+		</section>
+		<section id="items">
+			
+			<div class="item">
+				<img src="https://gsmimpex.in/images/Electronics/Printers%20wholesaler.jpg" alt="Item 1">
+				<h2>Item 1</h2>
+				<p>Category: Electronics</p>
+				<p>Sold for: $500</p>
+				<p>Date: 1 May 2023</p>
+			</div>
+			<div class="item">
+				<img src="https://www.jodhpurifurniture.com:4000/images/products/thumbnail/thumb670x419/1661509670276Group%201.jpg" alt="Item 2">
+				<h2>Item 2</h2>
+				<p>Category: Furniture</p>
+				<p>Sold for: $1000</p>
+				<p>Date: 28 April 2023</p>
+			</div>
+			<div class="item">
+				<img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/homepage/families-gallery/2023/revuelto/revuelto_m.png" alt="Item 2">
+				<h2>Item 2</h2>
+				<p>Category:care</p>
+				<p>Sold for: $1000</p>
+				<p>Date: 29 April 2023</p>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>© 2023 Auction Web App. All rights reserved.</p>
+	</footer>
+</body>
+</html>

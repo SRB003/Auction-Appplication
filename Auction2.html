@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="Auction.css">
+  
+    <title>Auction Web Page</title>
+    
+</head>
+<body>
+ 
+  <header>
+    <h1>Auction Web App</h1>
+    <p>Bid on your favorite items and win them at the best price!</p>
+    <a href="index.html" class="btn">Logout</a>
+    
+      <button class="sell-btn">Sell Item</button>
+      <a href="sold.html" class="btn">Sold items</a>
+      
+
+   
+  </header>
+  <div class="container">
+    <div class="auctions">
+      <div class="auction">
+        <h2>Auction 1</h2>
+        <img src="https://www.thespruce.com/thmb/W2XH-IxFMQQVoIKDecBWMQPJ2x8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/charlotablunarova-com-M0FIbfxhK64-unsplash-255b2e6e7b524fe1aa895d817a6cb460.jpg" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$100.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 2</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0268/1644/6557/products/adona-flora-kids-room-furniture-set-trundle-bed-wardrobe-desk-teak-chair-lime-blue_1_1024x1024.jpg?v=1596448721*" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 3</h2>
+        <img src="https://m.media-amazon.com/images/I/61tV07vXkIL._SL1173_.jpg"alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+        </div>
+        <div class="auction">
+          <h2>Auction 4</h2>
+          <img src="https://5.imimg.com/data5/SELLER/Default/2020/10/XJ/NO/BT/68434442/bedroom-furniture-500x500.jpg" alt="Auction Item">
+          <p>Current bid: <span class="current-bid">$200.00</span></p>
+          <button class="bid-btn">Bid</button>
+          </div>
+          <div class="auction">
+            <h2>Auction 5</h2>
+            <img src="https://i.koloapp.in/tr:n-fullscreen_md/d10b5ba8-7efc-35b4-ea12-6094def28fb2" alt="Auction Item">
+            <p>Current bid: <span class="current-bid">$200.00</span></p>
+            <button class="bid-btn">Bid</button>
+            </div>
+            <div class="auction">
+              <h2>Auction 6</h2>
+              <img src="https://housing.com/news/wp-content/uploads/2022/11/living-room-furniture-design-compressed-1.jpg" alt="Auction Item">
+              <p>Current bid: <span class="current-bid">$200.00</span></p>
+              <button class="bid-btn">Bid</button>
+              </div>
+              <div id="auction-container"></div>
+             
+
+    </body>   
+    <script>
+      const bidButtons = document.querySelectorAll('.bid-btn');
+
+bidButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const currentBid = button.parentElement.querySelector('.current-bid');
+    let currentBidAmount = Number(currentBid.textContent.replace('$', ''));
+    const limit = 1000; 
+    if (currentBidAmount + 10 > limit) {
+      alert('Sorry, the bid limit has been reached!');
+      return;
+    }
+    currentBidAmount += 10;
+    currentBid.textContent = `$${currentBidAmount.toFixed(2)}`;
+  });
+});
+
+    </script>
+    
+    <script>
+      const sellButton = document.querySelector('.sell-btn');
+      const container = document.querySelector('.auctions');
+    
+      sellButton.addEventListener('click', () => {
+        const name = prompt('Enter item name:');
+        const image = prompt('Enter image URL:');
+        const startingBid = prompt('Enter starting bid:');
+    
+        const auction = document.createElement('div');
+        auction.classList.add('auction');
+        auction.innerHTML = `
+          <h2>${name}</h2>
+          <img src="${image}" alt="Auction Item">
+          <p>Current bid: <span class="current-bid">$${startingBid}.00</span></p>
+          <button class="bid-btn">Bid</button>
+        `;
+        container.insertBefore(auction, document.getElementById('auction-container'));
+        
+      });
+    </script>
+    

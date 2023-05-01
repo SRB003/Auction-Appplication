@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="signup.css">
+    <title>Auction Web App - Sign Up</title>
+  
+  </head>
+  <body>
+    <header>
+      <h1>Auction Web App</h1>
+      <p>Bid on your favorite items and win them at the best price!</p>
+    </header>
+    <div class="container">
+      <div class="form">
+        <h2>Sign Up</h2>
+        <div id="signup-form">
+          <div class="error" id="signup-error"></div>
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password">
+          <button type="submit" onclick="signup()">Sign Up</button><br>
+          <br>
+          <a href="login.html">Already have an account?Log In</a>
+        </div>
+        <div id="signup-success" style="display: none;">
+          <p>Thank you for signing up! Please log in to continue.</p>
+          <a href="login.html">Log In</a>
+        </div>
+      </div>
+    </div>
+    <footer>
+
+      <p>&copy;2023 Auction Web App. All rights reserved
+
+       
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+<script>
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyCeGncsw3ZzjGn47IVLN3dTOowFeKpKKmE",
+    authDomain: "authentication-53000.firebaseapp.com",
+    projectId: "authentication-53000",
+    storageBucket: "authentication-53000.appspot.com",
+    messagingSenderId: "827765507594",
+    appId: "1:827765507594:web:aa8f64359c4bac8c7c41f3",
+    measurementId: "G-J8TDGBJ9VF"
+  };
+
+
+  
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  function signup() {
+    var email = document.getElementById("signup-email").value;
+    var password = document.getElementById("signup-password").value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Account created successfully!")
+        var user = userCredential.user;
+        document.getElementById("signup-form").style.display = "none";
+        document.getElementById("signup-success").style.display = "block";
+      })
+      .catch((error) => {
+        
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        document.getElementById("signup-error").innerHTML = errorMessage;
+      });
+  }
+</script>
+
+
+      </body>
+      
+       
+      
